@@ -1,14 +1,18 @@
 ---
 layout: archive
-title: "Portfolio"
-permalink: /portfolio/
+title: "Projects"
+permalink: /projects/
 author_profile: true
+redirect_from:
+  - /portfolio/
+  - /portfolio.html
 ---
 
 {% include base_path %}
 
+<p>A few open-source projects I&rsquo;ve built &mdash; mostly research code and tooling for my own workflow.</p>
 
-{% for post in site.portfolio %}
-  {% include archive-single.html %}
+{% assign projects = site.portfolio | sort: 'order' %}
+{% for post in projects %}
+  {% include work-card.html post=post %}
 {% endfor %}
-

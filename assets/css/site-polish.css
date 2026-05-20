@@ -1,0 +1,56 @@
+/* Global visual polish — tasteful, theme-safe tweaks */
+
+:root { --accent: #b06a3b; }
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+/* Author avatar: soft white ring + shadow */
+.author__avatar img {
+  border: 3px solid #fff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.14);
+}
+
+/* Page titles (Research / Projects / Teaching) with a short accent underline */
+.archive > .page__title {
+  letter-spacing: -0.01em;
+  padding-bottom: 0.3rem;
+}
+
+.archive > .page__title::after {
+  content: "";
+  display: block;
+  width: 2.2rem;
+  height: 3px;
+  margin-top: 0.5rem;
+  border-radius: 3px;
+  background: var(--accent);
+}
+
+/* More readable body copy */
+.page__content p,
+.archive > p {
+  line-height: 1.72;
+}
+
+.page__content > p,
+.archive > p {
+  color: #2f2f2f;
+}
+
+/* Breathing room before section headings on long pages (e.g. CV) */
+.page__content h1 {
+  margin-top: 1.7em;
+}
+
+.page__content h1:first-child {
+  margin-top: 0;
+}
+
+/* Smooth link colour transitions */
+a {
+  transition: color 0.15s ease;
+}

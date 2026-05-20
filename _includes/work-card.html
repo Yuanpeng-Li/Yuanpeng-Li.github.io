@@ -1,0 +1,36 @@
+{% include base_path %}
+{% assign post = include.post %}
+
+<div class="work-card">
+  <div class="work-card__thumb">
+    <a href="{{ base_path }}{{ post.url }}" aria-label="{{ post.title | escape }}">
+      {% if post.header.teaser %}
+        {% assign teaser = post.header.teaser %}
+        <img src="{% if teaser contains '://' %}{{ teaser }}{% else %}{{ teaser | prepend: '/images/' | prepend: base_path }}{% endif %}" alt="{{ post.title | escape }}">
+      {% else %}
+        <span class="work-card__mono">{{ post.title | strip | slice: 0, 1 | upcase }}</span>
+      {% endif %}
+    </a>
+  </div>
+
+  <div class="work-card__body">
+    <h3 class="work-card__title"><a href="{{ base_path }}{{ post.url }}">{{ post.title }}</a></h3>
+
+    {% if post.authors or post.status %}
+      <p class="work-card__meta">{{ post.authors }}{% if post.authors and post.status %} &middot; {% endif %}{% if post.status %}{{ post.status }}{% endif %}</p>
+    {% endif %}
+
+    {% if post.excerpt %}
+      <p class="work-card__desc">{{ post.excerpt | markdownify | strip_html | strip_newlines | truncatewords: 45 }}</p>
+    {% endif %}
+
+    {% if post.paperurl or post.github or post.website or post.slidesurl %}
+      <p class="work-card__links">
+        {% if post.paperurl %}<a href="{{ post.paperurl }}"><i class="ai ai-arxiv" aria-hidden="true"></i> arXiv</a>{% endif %}
+        {% if post.github %}<a href="{{ post.github }}"><i class="fab fa-github" aria-hidden="true"></i> Code</a>{% endif %}
+        {% if post.website %}<a href="{{ post.website }}"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> Website</a>{% endif %}
+        {% if post.slidesurl %}<a href="{{ post.slidesurl }}"><i class="fas fa-file-powerpoint" aria-hidden="true"></i> Slides</a>{% endif %}
+      </p>
+    {% endif %}
+  </div>
+</div>

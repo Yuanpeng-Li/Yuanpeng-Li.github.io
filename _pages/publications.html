@@ -1,17 +1,25 @@
 ---
 layout: archive
-title: "Publications"
-permalink: /publications/
+title: "Research"
+permalink: /research/
 author_profile: true
+redirect_from:
+  - /publications/
+  - /publications.html
 ---
-
-{% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
-{% endif %}
 
 {% include base_path %}
 
-<!-- New style rendering if publication categories are defined -->
+<p>My research spans <strong>reinforcement learning</strong> &mdash; especially <strong>multi-task RL</strong> &mdash; and <strong>large language models</strong>. Within RL, I am most interested in why naïve multi-task PPO collapses on tail tasks &mdash; how value normalization, critic conditioning, and inter-task gradient interactions combine to stall hard tasks &mdash; and in designing principled, lightweight remedies that recover tail-task performance without enlarging the model.</p>
+
+<p>More recently (since May 2026) I have begun an early-stage second direction: <strong>sample-efficient distillation of large LLMs into compact Mixture-of-Experts (MoE) models</strong>, framed through imitation learning and reinforcement learning.</p>
+
+<p>I work with my advisors Prof. <a href="https://qu.pstat.ucsb.edu/">Annie Qu</a> and Prof. <a href="https://rui-miao.github.io/">Rui Miao</a> at UC Irvine.</p>
+
+{% if site.author.googlescholar %}
+  <p class="wordwrap">A list of my articles is also available on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</p>
+{% endif %}
+
 {% if site.publication_category %}
   {% for category in site.publication_category  %}
     {% assign title_shown = false %}
@@ -23,14 +31,11 @@ author_profile: true
         <h2>{{ category[1].title }}</h2><hr />
         {% assign title_shown = true %}
       {% endunless %}
-      {% include archive-single.html %}
+      {% include work-card.html post=post %}
     {% endfor %}
   {% endfor %}
 {% else %}
   {% for post in site.publications reversed %}
-    {% include archive-single.html %}
+    {% include work-card.html post=post %}
   {% endfor %}
 {% endif %}
-
-
-
