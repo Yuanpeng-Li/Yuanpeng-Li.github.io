@@ -6,7 +6,12 @@
       fetch("{{ site.analytics.tracker_endpoint }}/hit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ path: location.pathname, ref: document.referrer }),
+        body: JSON.stringify({
+          path: location.pathname, ref: document.referrer,
+          sw: screen.width, sh: screen.height,
+          vw: window.innerWidth, vh: window.innerHeight, dpr: window.devicePixelRatio,
+          lang: navigator.language
+        }),
         keepalive: true
       });
     } catch (e) {}
