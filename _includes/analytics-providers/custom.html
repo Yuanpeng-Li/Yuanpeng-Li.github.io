@@ -1,3 +1,16 @@
 <!-- start custom analytics snippet -->
-
+{% if site.analytics.tracker_endpoint %}
+<script>
+  (function () {
+    try {
+      fetch("{{ site.analytics.tracker_endpoint }}/hit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ path: location.pathname, ref: document.referrer }),
+        keepalive: true
+      });
+    } catch (e) {}
+  })();
+</script>
+{% endif %}
 <!-- end custom analytics snippet -->
