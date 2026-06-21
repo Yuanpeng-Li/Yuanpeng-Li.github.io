@@ -28,7 +28,7 @@ Research experience
   * Graduate Researcher, UC Irvine. Brings fair-gradient combination (FairGrad) into LLM post-training by reframing multi-reward GRPO fine-tuning (correctness / format / length rewards) as multi-task RL.
   * A lightweight gradient *probe* builds a per-reward K×K Gram matrix (over lm-head / last layers / LoRA) to cheaply estimate inter-objective gradient conflict; a FairGrad solver turns it into adaptive per-reward weights that down-weight conflicting and up-weight aligned objectives.
   * Clipping each reward's GRPO loss independently before weighting lets a single scalar backward preserve the exact weighted gradient under PPO/GRPO clipping (unit-test-verified against the biased mix-then-clip alternative).
-  * Reproducible stack: framework-agnostic CPU core (65 unit tests) + a verl 0.8 / vLLM / FSDP adapter; experiments configured on Qwen2.5-0.5B/7B and Llama-3.1-8B-Instruct over GSM8K / DAPO-Math training with AIME / MATH-500 / OlympiadBench / AMC23 / GPQA evaluation. *(Method and training stack in place; comparative results pending.)*
+  * Reproducible multi-objective GRPO training-and-eval stack on verl 0.8 / vLLM / FSDP for multi-GPU training (standalone, unit-tested core) with W&B diagnostics; experiments configured on Qwen2.5-0.5B/7B and Llama-3.1-8B-Instruct over GSM8K / DAPO-Math training with AIME / MATH-500 / OlympiadBench / AMC23 / GPQA evaluation. *(Method and training stack in place; comparative results pending.)*
 
 * **TOPPO: Rethinking PPO for Multi-Task Reinforcement Learning with Critic Balancing** &nbsp; *(Jul. 2023 – Apr. 2026)*
   * First author. Advisors: Prof. [Annie Qu](https://qu.pstat.ucsb.edu/), Prof. [Rui Miao](https://rui-miao.github.io/) (corresponding). University of California, Irvine.
