@@ -184,6 +184,7 @@ exclude:
   - package.json*
   - Rakefile
   - README
+  - skills-lock.json
   - tmp
   - vendor
 keep_files:
