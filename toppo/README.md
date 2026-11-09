@@ -1,14 +1,12 @@
-# toppo/ is generated
+# toppo/ is a static build
 
-This folder is the TOPPO project page, exported from its Astro source, which
-is kept outside this repository. Do not edit it by hand: the next export
-replaces the whole folder.
+This folder is the TOPPO project page as built HTML, CSS, JavaScript and
+images. The source it was built from has been retired, so there is nothing to
+regenerate it from: to change the page, edit `index.html` directly.
 
-To change the page, edit `src/pages/toppo/index.astro` in the Astro source
-(the gradient demo is `src/components/Figure1.astro` and `src/lib/dial.ts`),
-then run there:
-
-    npm run build && node scripts/export-toppo-jekyll.mjs <path to this repository>
+`assets/` holds the stylesheet, the script for the interactive gradient
+figure, and each figure in several sizes and formats; the hashed file names
+are referenced from `index.html`, so rename a file there too.
 
 Jekyll copies `index.html` as it is (it has no front matter); this README is
 listed under `exclude` in `_config.yml`, so it is not published.
