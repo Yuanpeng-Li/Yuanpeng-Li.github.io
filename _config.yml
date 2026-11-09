@@ -21,7 +21,7 @@ repository               : "Yuanpeng-Li/Yuanpeng-Li.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png?v=2"
+  avatar           : "profile.jpg"
   name             : "Yuanpeng Li"
   pronouns         :
   bio              : "PhD student in Statistics at UC Irvine. Reinforcement learning and multi-task optimization."
