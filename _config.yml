@@ -167,6 +167,19 @@ exclude:
   - markdown_generator
   - talkmap.py
   - talkmap.ipynb
+  # Template example pages: not linked from the menu, but they were published and listed in the sitemap.
+  - _pages/archive-layout-with-content.md
+  - _pages/markdown.md
+  - _pages/non-menu-page.md
+  - _pages/terms.md
+  - _pages/talks.html
+  - _pages/talkmap.html
+  - _pages/year-archive.html
+  - _pages/category-archive.html
+  - _pages/tag-archive.html
+  - _pages/collection-archive.html
+  - _pages/page-archive.html
+  - talkmap
   - "*.sublime-project"
   - "*.sublime-workspace"
   - .asset-cache

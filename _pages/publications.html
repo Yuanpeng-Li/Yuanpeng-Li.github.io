@@ -40,14 +40,14 @@ redirect_from:
 
 <div class="research-item">
   <h3 class="research-item__title">Where tasks compete inside deep networks</h3>
-  <p class="research-item__when">Since Aug 2026; paper in preparation for TMLR</p>
+  <p class="research-item__when">Since Sep 2026</p>
   <p>Gradient-balancing methods such as FairGrad weigh tasks by comparing whole-network gradients. Benchmarking 26 multi-task gradient methods in one PyTorch trainer on NYUv2, CelebA and QM9, I found that a few small early layers carry most of the gradient energy, while in a QM9 message-passing network the energy targets separate only at the readout layer. I am developing a block kernel that balances each module&rsquo;s contribution to the task weights.</p>
 </div>
 
 <div class="research-item">
-  <h3 class="research-item__title">Critic balancing in VLA and LLM post-training</h3>
+  <h3 class="research-item__title">Scaling TOPPO to VLA and LLM RL</h3>
   <p class="research-item__when">Jun &ndash; Sep 2026</p>
-  <p>I set up RL fine-tuning for a 3.3B &pi;<sub>0</sub> vision-language-action model with RLinf, and built a GRPO/PPO pipeline for LLMs on verl, vLLM and FSDP2 with a 120B LLM judge as the reward model. Unlike on small networks, TOPPO&rsquo;s critic fixes gave no clear gain on either model, which is what sent me to look inside the network.</p>
+  <p>I set up RL fine-tuning for a 3.3B &pi;<sub>0</sub> vision-language-action model with RLinf, and built a GRPO/PPO pipeline for LLMs on verl, vLLM and FSDP2 with a 120B LLM judge as the reward model. Unlike on small networks, standard gradient surgery on the whole network showed no clear benefit on &pi;<sub>0</sub> or on LLMs. That is what sent me to look inside the network.</p>
 </div>
 
 <div class="research-item">
