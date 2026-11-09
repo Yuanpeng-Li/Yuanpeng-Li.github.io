@@ -10,11 +10,7 @@ redirect_from:
 
 {% include base_path %}
 
-<p>My research spans <strong>reinforcement learning</strong> &mdash; especially <strong>multi-task RL</strong> &mdash; and <strong>large language models</strong>. Within RL, I am most interested in why naïve multi-task PPO collapses on tail tasks &mdash; how value normalization, critic conditioning, and inter-task gradient interactions combine to stall hard tasks &mdash; and in designing principled, lightweight remedies that recover tail-task performance without enlarging the model.</p>
-
-<p>More recently, since May 2026, I have started an early-stage second direction on <strong>multi-objective reinforcement learning for LLM post-training</strong> (<em>Probe-FairGRPO</em>). It studies multi-reward GRPO through a multi-task RL lens, using probe-based gradient Gram matrices and fair-gradient weighting to diagnose and balance competing reward objectives during post-training.</p>
-
-<p>I work with my advisors Prof. <a href="https://qu.pstat.ucsb.edu/">Annie Qu</a> and Prof. <a href="https://rui-miao.github.io/">Rui Miao</a> at UC Irvine.</p>
+<p>My papers, and the work I am doing now. I work with my advisors Prof. <a href="https://qu.pstat.ucsb.edu/">Annie Qu</a> and Prof. <a href="https://rui-miao.github.io/">Rui Miao</a>.</p>
 
 {% if site.author.googlescholar %}
   <p class="wordwrap">A list of my articles is also available on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</p>
@@ -39,3 +35,23 @@ redirect_from:
     {% include work-card.html post=post %}
   {% endfor %}
 {% endif %}
+
+<h2>Current research</h2><hr />
+
+<div class="research-item">
+  <h3 class="research-item__title">Where tasks compete inside deep networks</h3>
+  <p class="research-item__when">Since Aug 2026; paper in preparation for TMLR</p>
+  <p>Gradient-balancing methods such as FairGrad weigh tasks by comparing whole-network gradients. Benchmarking 26 multi-task gradient methods in one PyTorch trainer on NYUv2, CelebA and QM9, I found that a few small early layers carry most of the gradient energy, while in a QM9 message-passing network the energy targets separate only at the readout layer. I am developing a block kernel that balances each module&rsquo;s contribution to the task weights.</p>
+</div>
+
+<div class="research-item">
+  <h3 class="research-item__title">Critic balancing in VLA and LLM post-training</h3>
+  <p class="research-item__when">Jun &ndash; Sep 2026</p>
+  <p>I set up RL fine-tuning for a 3.3B &pi;<sub>0</sub> vision-language-action model with RLinf, and built a GRPO/PPO pipeline for LLMs on verl, vLLM and FSDP2 with a 120B LLM judge as the reward model. Unlike on small networks, TOPPO&rsquo;s critic fixes gave no clear gain on either model, which is what sent me to look inside the network.</p>
+</div>
+
+<div class="research-item">
+  <h3 class="research-item__title">Runtime-aware HPC job scheduling</h3>
+  <p class="research-item__when">Since Oct 2026, with Rui Miao</p>
+  <p>I wrote slurmsim, a Python and C simulator that reproduces real Slurm&rsquo;s job start order. Setting each job&rsquo;s minimum time from a Kaplan&ndash;Meier estimate of its runtime, with the user&rsquo;s limit kept as the hard cap, cut mean turnaround by 8&ndash;18% in simulation and by 8% in a replay of a national-lab trace, with almost no extra timeouts.</p>
+</div>

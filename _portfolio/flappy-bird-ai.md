@@ -1,8 +1,8 @@
 ---
 title: "Flappy-Bird-AI"
-excerpt: "An RL agent trained with Proximal Policy Optimization (PPO) to play Flappy Bird — a sandbox for reward shaping, observation design, and stable policy-gradient training under sparse, repetitive feedback."
+excerpt: "A PPO agent that learns to play Flappy Bird; a small sandbox for reward shaping and observation design."
 collection: portfolio
-order: 3
+order: 5
 github: "https://github.com/Yuanpeng-Li/Flappy-Bird-AI"
 header:
   teaser: flappy-bird-ai.gif

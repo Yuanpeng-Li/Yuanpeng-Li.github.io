@@ -13,10 +13,12 @@ PDF: [English](/files/cv_en.pdf) &nbsp;·&nbsp; [中文 (Chinese)](/files/cv_zh.
 
 Education
 ======
-* **Ph.D. in Statistics**, University of California, Irvine — Sep. 2024 – Present
-* **B.S. in Mathematics and Applied Mathematics**, Jilin University — Aug. 2020 – Jul. 2024
+* **University of California, Irvine**, Irvine, CA &nbsp; *Sep. 2024 – May 2028 (expected)*
+  * *Doctor of Philosophy (PhD) in Statistics; Advisors: Prof. [Annie Qu](https://qu.pstat.ucsb.edu/), Prof. [Rui Miao](https://rui-miao.github.io/)*
+* **Jilin University – School of Mathematics**, Changchun, China &nbsp; *Aug. 2020 – Jul. 2024*
+  * *B.S. in Mathematics and Applied Mathematics*
 
-Manuscripts
+Publications
 ======
   <ul>{% for post in site.publications reversed %}
     {% include archive-single-cv.html %}
@@ -24,37 +26,47 @@ Manuscripts
 
 Research experience
 ======
-* **Probe-FairGRPO: Multi-Objective RL Fine-Tuning for LLM Post-Training** &nbsp; *(May 2026 – Present)*
-  * Graduate Researcher, UC Irvine. Brings fair-gradient combination (FairGrad) into LLM post-training by reframing multi-reward GRPO fine-tuning (correctness / format / length rewards) as multi-task RL.
-  * A lightweight gradient *probe* builds a per-reward K×K Gram matrix (over lm-head / last layers / LoRA) to cheaply estimate inter-objective gradient conflict; a FairGrad solver turns it into adaptive per-reward weights that down-weight conflicting and up-weight aligned objectives.
-  * Clipping each reward's GRPO loss independently before weighting lets a single scalar backward preserve the exact weighted gradient under PPO/GRPO clipping (unit-test-verified against the biased mix-then-clip alternative).
-  * Reproducible multi-objective GRPO training-and-eval stack on verl 0.8 / vLLM / FSDP for multi-GPU training (standalone, unit-tested core) with W&B diagnostics; experiments configured on Qwen2.5-0.5B/7B and Llama-3.1-8B-Instruct over GSM8K / DAPO-Math training with AIME / MATH-500 / OlympiadBench / AMC23 / GPQA evaluation. *(Method and training stack in place; comparative results pending.)*
+* **[TOPPO: Rethinking PPO for Multi-Task RL with Critic Balancing](https://arxiv.org/abs/2605.11473)** \[[code](https://github.com/NAIVlab/TOPPO)\], Irvine, CA &nbsp; *Jul. 2023 – Apr. 2026*
+  * *First author; accepted at NeurIPS 2026; Advisors: Prof. Annie Qu, Prof. Rui Miao*
+  * Identified ill-conditioned critic gradients as the key bottleneck in multi-task PPO: easy tasks dominate the critic and hard tasks stall.
+  * Proposed Critic Balancing (per-task PopArt, LayerNorm critic, FairGrad on the critic, PCGrad on the actor), proved that FairGrad's update is unchanged by positive per-task gradient rescaling, and sped up its solver 83× over SciPy.
+  * Set a new state of the art on Meta-World+ MT50 (90.9% mean, 56.5% worst-10-task success) over the strongest baseline, ARS-LN-1024 (85.7%, 43.3%, same protocol), with 22.7× fewer parameters, reaching the baseline's final mean in 28% of the steps.
+  * Extended Critic Balancing to a two-objective AMP humanoid task, cutting motion-style FID by 76%.
 
-* **TOPPO: Rethinking PPO for Multi-Task Reinforcement Learning with Critic Balancing** &nbsp; *(Jul. 2023 – Apr. 2026)*
-  * First author. Advisors: Prof. [Annie Qu](https://qu.pstat.ucsb.edu/), Prof. [Rui Miao](https://rui-miao.github.io/) (corresponding). University of California, Irvine.
-  * Diagnosed critic-side gradient ill-conditioning as a previously overlooked bottleneck of PPO in multi-task reinforcement learning, where tail tasks stall while easy tasks dominate value-function updates.
-  * Designed *Critic Balancing* for PPO — per-task PopArt value normalization, pre-activation LayerNorm in the critic body, and per-side gradient combiners (PCGrad / CAGrad / FairGrad chosen independently for actor and critic) — to recondition gradients without enlarging the model.
-  * On Meta-World+ MT50, surpassed published SAC- and ARS-family baselines on both mean and worst-*k* tail-task success while using up to 22.7× fewer parameters and substantially fewer environment steps.
+* **Scaling TOPPO to Large Models: VLA and LLM RL**, Irvine, CA &nbsp; *Jun. 2026 – Sep. 2026*
+  * *Advisors: Prof. Annie Qu, Prof. Rui Miao*
+  * Set up RL fine-tuning of a 3.3B π<sub>0</sub> VLA model with RLinf, and built a GRPO/PPO pipeline for LLMs on verl, vLLM and FSDP2 with a 120B LLM judge as the reward model.
+  * TOPPO gave no clear gain on either model, unlike on small networks, which motivated the block-wise study below.
+
+* **Block-Wise Gradient Balancing for Deep Multi-Task Networks (ongoing)**, Irvine, CA &nbsp; *Aug. 2026 – Present*
+  * *Advisors: Prof. Annie Qu, Prof. Rui Miao; paper in preparation for TMLR*
+  * Benchmarked 26 multi-task gradient methods in one PyTorch trainer, reproducing published NYUv2, CelebA and QM9 results.
+  * Found that a few small early layers carry most of the gradient energy, so the whole-network gradient Gram matrix behind FairGrad's task weights mostly reflects them; in a QM9 message-passing network, the energy targets separate only at the readout layer.
+  * Proposed a norm-induced block kernel that balances each module's contribution to FairGrad's task weights. On a QM9 graph transformer it cut Δm% (average gap to single-task models) from 27.7 to 9.6.
+
+* **Runtime-Aware HPC Job Scheduling (ongoing)**, Irvine, CA &nbsp; *Oct. 2026 – Present*
+  * *With Prof. Rui Miao*
+  * Wrote slurmsim, a Python/C Slurm simulator matching real Slurm's job start order and 99.9% of sampled priorities exactly.
+  * Set each job's `--time-min`, which backfill plans with, from a Kaplan–Meier runtime estimate, keeping the user's limit as the hard cap; mean turnaround fell 8–18% in simulation and 8% in a national-lab trace replay, with almost no extra timeouts.
+
+Projects
+======
+* **[RunFleet](https://github.com/Yuanpeng-Li/runfleet)** & **[run-skills](https://github.com/NAIVlab/run-skills)** \| *Python, Bash, Slurm, MCP*
+  * Built a terminal dashboard for jobs and GPUs across Slurm clusters over SSH, plus skills that let coding agents submit jobs.
+* **[gradescope-mcp](https://github.com/Yuanpeng-Li/gradescope-mcp)** \| *Python, MCP, uv*
+  * Built an MCP server that lets AI agents grade and edit Gradescope rubrics; every write is previewed and approved by a person.
 
 Teaching
 ======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-
-Internship experience
-======
-* **AI Research Intern**, Synkrotron, Xi'an, China &nbsp; *(Dec. 2022 – Jan. 2023)*
-  * Configured remote Linux devices (via FRP) for an automated road-patrol pipeline and studied computer-generated simulation datasets to improve real-world autonomous-driving test performance.
+* **Graduate Teaching Assistant**, UC Irvine Statistics *(Sep. 2024 – Present)*: STATS 7, 67, 110, 120C, 205P.
 
 Awards
 ======
-* Scholarship, academic year 2022–2023 — Oct. 2023
-* Chinese Mathematics Competitions: National 3rd Prize — Dec. 2021
-* Jilin Province Mathematics Competitions: Provincial 2nd Prize — Dec. 2021
+* UC Irvine Statistics **Graduate Travel Award** ($2,500, 2026)
+* Chinese Mathematics Competitions **National 3rd Prize** (2021)
 
 Skills
 ======
-* **LLM post-training & RL:** PyTorch, Hugging Face Transformers, vLLM, verl, FSDP, PPO/GRPO, RLHF/RLAIF, LoRA/PEFT
-* **Agent & retrieval tooling:** Model Context Protocol (MCP), RAG, BM25, vector search, Claude Code Plugin, Pyodide
-* **Infra & engineering:** Python, C, Git, Docker, Linux, SLURM, Ray, W&B, uv, pytest, remote-cluster training
+* **Methods:** Reinforcement learning (PPO, GRPO), RLHF/RLAIF, multi-task learning (PCGrad, FairGrad, MGDA), LoRA/PEFT
+* **ML Frameworks & Tooling:** PyTorch, Hugging Face, vLLM, verl, FSDP, RLinf; MCP servers, Claude Code / Codex skills
+* **Infra & Engineering:** Python, C, Git, Docker, Linux, Slurm, Ray, W&B, uv, pytest

@@ -1,8 +1,8 @@
 ---
 title: "StudyGround"
-excerpt: "A Claude Code plugin for AI-assisted self-study: rendered lessons in a local web reader, in-browser Python via Pyodide, a course-aware tutor, and one-click hand-off into VSCode for exercises."
+excerpt: "A Claude Code plugin for self-study: lessons in a local web reader, Python that runs in the browser through Pyodide, a course-aware tutor, and exercises that open in VS Code."
 collection: portfolio
-order: 1
+order: 4
 github: "https://github.com/Yuanpeng-Li/StudyGround"
 header:
   teaser: studyground-logo.png
