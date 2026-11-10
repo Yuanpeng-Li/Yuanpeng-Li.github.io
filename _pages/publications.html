@@ -36,22 +36,22 @@ redirect_from:
   {% endfor %}
 {% endif %}
 
-<h2>Current research</h2><hr />
-
-<div class="research-item research-item--mtl">
-  <h3 class="research-item__title">Where tasks compete inside deep networks</h3>
-  <p class="research-item__when research-item__when--ongoing">Ongoing</p>
-  <p>Gradient-balancing methods such as FairGrad weigh tasks by comparing whole-network gradients. Benchmarking 26 multi-task gradient methods in one PyTorch trainer on NYUv2, CelebA and QM9, I found that a few small early layers carry most of the gradient, so the whole-network comparison mostly reflects them; yet on QM9 the energy targets&rsquo; gradients differ only in the final readout layer. I am developing a block kernel that balances each module&rsquo;s contribution to the task weights.</p>
-</div>
+<h2>Research since TOPPO</h2><hr />
 
 <div class="research-item research-item--scale">
   <h3 class="research-item__title">Scaling TOPPO to VLA and LLM RL</h3>
   <p class="research-item__when">Sep 2026</p>
-  <p>I set up RL fine-tuning for a 3.3B &pi;<sub>0</sub> vision-language-action model with RLinf, and built a GRPO/PPO pipeline for LLMs on verl, vLLM and FSDP2, with a Nemotron-3-Super-120B judge self-hosted on vLLM as the reward model. Unlike on small networks, standard gradient surgery on the whole network showed no clear benefit on &pi;<sub>0</sub> or on LLMs. That is what sent me to look inside the network.</p>
+  <p>After TOPPO, I tried it at scale. I set up RL fine-tuning for a 3.3B &pi;<sub>0</sub> vision-language-action model with RLinf, and built a GRPO/PPO pipeline for LLMs on verl, vLLM and FSDP2, with a Nemotron-3-Super-120B judge self-hosted on vLLM as the reward model. Unlike on small networks, standard gradient surgery on the whole network showed no clear benefit on &pi;<sub>0</sub> or on LLMs. That result led to the next project: looking inside the network.</p>
+</div>
+
+<div class="research-item research-item--mtl">
+  <h3 class="research-item__title">Where tasks compete inside deep networks</h3>
+  <p class="research-item__when research-item__when--ongoing">Ongoing</p>
+  <p>This follows from the scaling study above. Gradient-balancing methods such as FairGrad weigh tasks by comparing whole-network gradients. Benchmarking 26 multi-task gradient methods in one PyTorch trainer on NYUv2, CelebA and QM9, I found that a few small early layers carry most of the gradient, so the whole-network comparison mostly reflects them; yet on QM9 the energy targets&rsquo; gradients differ only in the final readout layer. I am developing a block kernel that balances each module&rsquo;s contribution to the task weights.</p>
 </div>
 
 <div class="research-item research-item--hpc">
   <h3 class="research-item__title">Runtime-aware HPC job scheduling</h3>
   <p class="research-item__when research-item__when--ongoing">Ongoing</p>
-  <p>I wrote slurmsim, a Python and C simulator that reproduces real Slurm&rsquo;s job start order. Setting each job&rsquo;s minimum time from a Kaplan&ndash;Meier estimate of its runtime, with the user&rsquo;s limit kept as the hard cap, cut mean turnaround by 8&ndash;18% in simulation and by 8% in a replay of a national-lab trace, with almost no extra timeouts.</p>
+  <p>Separately from multi-task learning, I wrote slurmsim, a Python and C simulator that reproduces real Slurm&rsquo;s job start order. Setting each job&rsquo;s minimum time from a Kaplan&ndash;Meier estimate of its runtime, with the user&rsquo;s limit kept as the hard cap, cut mean turnaround by 8&ndash;18% in simulation and by 8% in a replay of a national-lab trace, with almost no extra timeouts.</p>
 </div>
