@@ -2,6 +2,7 @@
 title: "RunFleet"
 excerpt: "A terminal dashboard for Slurm jobs and GPUs across every cluster and workstation you can ssh into, with nothing installed on the remote side. Jobs that ended get a likely cause, linked to the log line."
 collection: portfolio
+redirect_from: /portfolio/runfleet/
 order: 1
 github: "https://github.com/Yuanpeng-Li/runfleet"
 header:
@@ -18,4 +19,4 @@ header:
 
 A `--demo` mode runs it on a simulated fleet, with no cluster or account needed; the picture above is that demo.
 
-Its companion, [Run-Skills](/portfolio/run-skills/), lets a coding agent launch those jobs.
+Its companion, [Run-Skills](/projects/run-skills/), lets a coding agent launch those jobs.

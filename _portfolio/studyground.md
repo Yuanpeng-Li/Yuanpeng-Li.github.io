@@ -2,6 +2,7 @@
 title: "StudyGround"
 excerpt: "A Claude Code plugin for self-study: lessons in a local web reader, Python that runs in the browser through Pyodide, a course-aware tutor, and exercises that open in VS Code."
 collection: portfolio
+redirect_from: /portfolio/studyground/
 order: 4
 github: "https://github.com/Yuanpeng-Li/StudyGround"
 header:

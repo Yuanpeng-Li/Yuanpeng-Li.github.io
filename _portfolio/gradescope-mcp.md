@@ -2,6 +2,7 @@
 title: "Gradescope MCP"
 excerpt: "An MCP server with 74 tools that lets AI assistants work through real Gradescope grading: assignments, rubrics, submissions, extensions and regrade requests. Writes to Gradescope return a preview first and run only on an explicit confirmation, which the agent is told to get from a person."
 collection: portfolio
+redirect_from: /portfolio/gradescope-mcp/
 order: 3
 github: "https://github.com/Yuanpeng-Li/gradescope-mcp"
 ---

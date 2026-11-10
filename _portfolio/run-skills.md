@@ -2,6 +2,7 @@
 title: "Run-Skills"
 excerpt: "An agent skill, with a small harness, that lets Claude Code, Codex and pi run experiments on Slurm clusters and GPU workstations. The agent syncs the project, builds its environment there, checks each launch against what you have already allowed, and watches the run through small, bounded reads."
 collection: portfolio
+redirect_from: /portfolio/run-skills/
 order: 2
 github: "https://github.com/NAIVlab/run-skills"
 header:

@@ -2,6 +2,7 @@
 title: "Flappy-Bird-AI"
 excerpt: "A PPO agent that learns to play Flappy Bird; a small sandbox for reward shaping and observation design."
 collection: portfolio
+redirect_from: /portfolio/flappy-bird-ai/
 order: 5
 github: "https://github.com/Yuanpeng-Li/Flappy-Bird-AI"
 header:
