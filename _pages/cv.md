@@ -15,7 +15,7 @@ Education
 ======
 * **University of California, Irvine**, Irvine, CA &nbsp; *Sep. 2024 – May 2028 (expected)*
   * *Doctor of Philosophy (PhD) in Statistics; Advisors: Prof. [Annie Qu](https://qu.pstat.ucsb.edu/), Prof. [Rui Miao](https://rui-miao.github.io/)*
-* **Jilin University – School of Mathematics**, Changchun, China &nbsp; *Aug. 2020 – Jul. 2024*
+* **Jilin University – School of Mathematics**, Changchun, China &nbsp; *Aug. 2020 – Jun. 2024*
   * *B.S. in Mathematics and Applied Mathematics*
 
 Publications
