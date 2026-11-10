@@ -51,9 +51,9 @@ Research experience
 
 Projects
 ======
-* **[RunFleet](https://github.com/Yuanpeng-Li/runfleet)** & **[run-skills](https://github.com/NAIVlab/run-skills)** \| *Python, Bash, Slurm, MCP*
+* **[RunFleet](https://github.com/Yuanpeng-Li/runfleet)** & **[Run-Skills](https://github.com/NAIVlab/run-skills)** \| *Python, Bash, Slurm, MCP*
   * Built a terminal dashboard for jobs and GPUs across Slurm clusters over SSH, plus skills that let coding agents submit jobs.
-* **[gradescope-mcp](https://github.com/Yuanpeng-Li/gradescope-mcp)** \| *Python, MCP, uv*
+* **[Gradescope MCP](https://github.com/Yuanpeng-Li/gradescope-mcp)** \| *Python, MCP, uv*
   * Built an MCP server that lets AI agents grade and edit Gradescope rubrics; every write is previewed and approved by a person.
 
 Teaching

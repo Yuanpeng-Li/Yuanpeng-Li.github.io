@@ -18,4 +18,4 @@ header:
 
 A `--demo` mode runs it on a simulated fleet, with no cluster or account needed; the picture above is that demo.
 
-Its companion, [run-skills](/portfolio/run-skills/), lets a coding agent launch those jobs.
+Its companion, [Run-Skills](/portfolio/run-skills/), lets a coding agent launch those jobs.

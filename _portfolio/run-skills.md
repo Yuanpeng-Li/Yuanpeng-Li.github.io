@@ -1,5 +1,5 @@
 ---
-title: "run-skills"
+title: "Run-Skills"
 excerpt: "An agent skill, with a small harness, that lets Claude Code, Codex and pi run experiments on Slurm clusters and GPU workstations. The agent syncs the project, builds its environment there, checks each launch against what you have already allowed, and watches the run through small, bounded reads."
 collection: portfolio
 order: 2
@@ -8,10 +8,10 @@ header:
   teaser: run-skills-architecture.svg
 ---
 
-[run-skills](https://github.com/NAIVlab/run-skills) takes a coding agent's training script the last mile, onto a Slurm cluster or a GPU workstation. It is one skill, `remote-run`, plus a small bash harness and a command, `rsk`; one installed copy serves Claude Code, Codex and pi. Left alone, agents write `sbatch` scripts with the wrong memory flags, fill `$HOME` with caches, launch onto a GPU someone else is using, or "fix" a stuck job by cancelling it. run-skills gives them a few commands with the guard rails built in.
+[Run-Skills](https://github.com/NAIVlab/run-skills) takes a coding agent's training script the last mile, onto a Slurm cluster or a GPU workstation. It is one skill, `remote-run`, plus a small bash harness and a command, `rsk`; one installed copy serves Claude Code, Codex and pi. Left alone, agents write `sbatch` scripts with the wrong memory flags, fill `$HOME` with caches, launch onto a GPU someone else is using, or "fix" a stuck job by cancelling it. Run-Skills gives them a few commands with the guard rails built in.
 
 <figure>
-  <a href="/images/run-skills-architecture.svg"><img src="/images/run-skills-architecture.svg" alt="Diagram of run-skills. On your machine, you ask a coding agent for a run; the agent reads the remote-run skill, whose index comes from one directory per target, and runs the local commands and rsk. On each target, your project directory holds the code and the harness: the submit scripts with the site's policy, and a status script. Numbered arrows follow one run; the steps are listed below."></a>
+  <a href="/images/run-skills-architecture.svg"><img src="/images/run-skills-architecture.svg" alt="Diagram of Run-Skills. On your machine, you ask a coding agent for a run; the agent reads the remote-run skill, whose index comes from one directory per target, and runs the local commands and rsk. On each target, your project directory holds the code and the harness: the submit scripts with the site's policy, and a status script. Numbered arrows follow one run; the steps are listed below."></a>
 </figure>
 
 The skill is what the agent reads: an index of your targets and one page about each, so it reads little and guesses nothing. The harness is what it runs on your machine, and the scripts that do the remote work are deployed next to each project along with the code. A cluster or workstation is one directory of facts and rules (`profile.sh` and `reference.md`, plus `policy.sh` for a cluster), not code, so adding one means writing that directory, and a lab can share its targets as a private pack.

@@ -223,25 +223,53 @@ a {
 
 /* Research: work in progress, set like the publication cards above it */
 .research-item {
-  padding: 1.1em 0;
-  border-bottom: 1px solid #ececec;
+  --ri-color: #8a8a8a;
+  margin: 1.4em 0;
+  padding: 0.15em 0 0.15em 1em;
+  border-left: 3px solid var(--ri-color);
 }
 
-.research-item:last-child {
-  border-bottom: 0;
-}
+/* One colour per line of work, taken from the News palette. */
+.research-item--mtl { --ri-color: var(--news-paper, #e4572e); }
+.research-item--scale { --ri-color: var(--news-start, #7a6dda); }
+.research-item--hpc { --ri-color: var(--news-code, #0596b1); }
 
 .research-item__title {
-  margin: 0 0 0.25em;
+  margin: 0 0 0.35em;
   font-size: 1.1em;
   font-weight: 700;
   line-height: 1.3;
 }
 
 .research-item .research-item__when {
-  margin: 0 0 0.5em;
-  font-size: 0.8em;
-  color: #6b6b6b;
+  display: inline-block;
+  margin: 0 0 0.6em;
+  padding: 0 0.6em;
+  border-radius: 999px;
+  font-size: 0.75em;
+  font-weight: 600;
+  line-height: 1.7;
+  background: #f1f1f1;
+  color: #555;
+}
+
+.research-item .research-item__when--ongoing {
+  background: color-mix(in srgb, var(--ri-color) 14%, #fff);
+  color: color-mix(in srgb, var(--ri-color) 72%, #000);
+}
+
+.research-item .research-item__when + p { margin-top: 0; }
+.research-item p:last-child { margin-bottom: 0; }
+
+.research-item__when--ongoing::before {
+  content: "";
+  display: inline-block;
+  width: 0.5em;
+  height: 0.5em;
+  margin-right: 0.4em;
+  border-radius: 50%;
+  background: var(--ri-color);
+  vertical-align: 0.05em;
 }
 
 .research-item p {
