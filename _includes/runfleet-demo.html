@@ -1,0 +1,23 @@
+{% include base_path %}
+<figure class="rfd" data-src="{{ site.baseurl }}/assets/runfleet-demo/runfleet-demo.json?v={{ site.time | date: '%s' }}">
+<link rel="stylesheet" href="{{ base_path }}/assets/css/runfleet-demo.css?v={{ site.time | date: '%s' }}">
+<figcaption class="rfd__cap" hidden>
+<span class="rfd__try">Try it: click a host, a job or a tab; double-click a table row to open it</span>
+<span class="rfd__status" role="status" aria-live="polite"></span>
+<span class="rfd__hint"></span>
+</figcaption>
+<div class="rfd__win" hidden>
+<div class="rfd__bar">
+<span class="rfd__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+<span class="rfd__title">RunFleet</span>
+<button type="button" class="rfd__full" aria-label="Full screen" title="Full screen" hidden><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4"/></svg></button>
+</div>
+<div class="rfd__body">
+<div class="rfd__screen" tabindex="0" role="application" aria-label="RunFleet demo"></div>
+<div class="rfd__toast" role="status" aria-live="polite" hidden></div>
+</div>
+</div>
+<div class="rfd__keys" hidden></div>
+<noscript><img src="{{ base_path }}/images/runfleet-fleet.png" alt="RunFleet's fleet view in its demo mode: one card per host for three simulated Slurm clusters and two GPU workstations"></noscript>
+<script src="{{ base_path }}/assets/js/runfleet-demo.js?v={{ site.time | date: '%s' }}" defer></script>
+</figure>
